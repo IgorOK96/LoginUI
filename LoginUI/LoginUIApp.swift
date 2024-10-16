@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct LoginUIApp: App {
+    @State private var contentViewVM = ContentViewViewModel()
+    @StateObject private var loginViewVM = LoginViewViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
         }
+        .environment(contentViewVM)
+        .environmentObject(loginViewVM)
     }
 }
